@@ -1,0 +1,32 @@
+name: "SQL Injection 101"
+category: "Web"
+difficulty: "Easy"
+points: 100
+description: |
+  Welcome to your first SQL injection challenge.
+
+  A login form has been deployed at the URL shown when you launch this challenge.
+  Find a way to authenticate as the user `admin` without knowing the password.
+
+flag:
+  type: dynamic
+  format: "ctf{...}"
+  inject_env: FLAG
+
+network:
+  ports: [80]
+  egress: false
+
+timeouts:
+  idle: 30m
+  hard: 4h
+
+hints:
+  - cost: 10
+    text: "What gets POSTed to the server when you submit the form?"
+  - cost: 25
+    text: "What happens if the password field contains a single quote?"
+  - cost: 50
+    text: "Try a payload like `' OR '1'='1` in the username."
+
+tags: [sqli, web, owasp-top10]
